@@ -34,3 +34,4 @@ cache
 artifacts
 
 /yarn.lock
+/yarn-error.log
