@@ -1,14 +1,15 @@
 const { ethers, run, network } = require("hardhat");
 const { AdminClient } = require("defender-admin-client");
-import {createRelay} from "./relay";
+const { createRelay } = require("./relay");
 require("dotenv").config();
 
 async function main() {
-  const contract = await deployContract();
-  if (contract != null) {
-    await uploadContractToDefender("SystemTokensRewards", contract);
-  }
-  const relayData = createRelay();
+  // const contract = await deployContract();
+  // if (contract != null) {
+  //   await uploadContractToDefender("SystemTokensRewards", contract);
+  // }
+  const relayData = await createRelay();
+  console.log(relayData);
 }
 
 async function deployContract() {
@@ -69,7 +70,6 @@ async function verify(contractAddress, args) {
     }
   }
 }
-
 
 main()
   .then(() => process.exit(0))
