@@ -20,12 +20,12 @@ async function createRelay() {
     console.log("Creating relay...");
     const strRelay = await client.create(requestParams);
     console.log(strRelay);
-    const srtRelayKeys = await client.createKey(strRelay.data.relayerId);
+    const srtRelayKeys = await client.createKey(strRelay.relayerId);
     console.log("Relay keys created");
     console.log(srtRelayKeys);
     return {
-      relay: strRelay.data,
-      relayKey: srtRelayKeys.data,
+      relay: strRelay,
+      relayKey: srtRelayKeys,
     };
   } catch (error) {
     console.log(error);

@@ -12,7 +12,7 @@ exports.main = async function(signer, recipient, contractAddress) {
   const contract = new ethers.Contract(contractAddress, ERC20_ABI, signer);
 
   // Mint and send funds to recipient
-  const tx = await contract.mint(recipient, 10);
+  const tx = await contract.mint(recipient, BigInt(1e18));
   console.log(`Transferred 10SRT to ${recipient}`);
   return tx;
 
@@ -23,11 +23,14 @@ exports.handler = async function(credentials) {
   // Initialize defender relayer provider and signer
   const provider = new DefenderRelayProvider(credentials);
   const signer = new DefenderRelaySigner(credentials, provider, { speed: 'fast' });
-  const contractAddress = '???????';
+  const contractAddress = '0xa292428cd039668ba5E5F4aF42a69536f6aB271C';
+  const txs = []
   for (let index = 0; index < participants.length; index++) {
     const recipient =  participants[index];
-    return exports.main(signer, recipient, contractAddress); 
+    res = await exports.main(signer, recipient, contractAddress);
+    txs.push(res);
   }
+  return txs;
 }
 
 // To run locally (this code will not be executed in Autotasks)
