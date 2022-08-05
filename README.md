@@ -1,6 +1,13 @@
 # system-token-reward
 
-This project demonstrates a basic Hardhat use case.
+**System Token Rewards (STR)**
+
+*It's a web3 company that offers the service of rewards (tokens) to the participants of congresses and business meetups.*
+
+Companies organize events where participants are registered using the STR platform.
+The organizing company of the event contracts the use of the STR service with the acquisition of 'n' amount of tokens and distributes them to the participants through the STR platform.
+
+> The tokens will be traded in a marketplace for different products (next phase of the roadmap)
 
 Try running some of the following tasks:
 
