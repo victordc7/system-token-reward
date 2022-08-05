@@ -16,9 +16,10 @@ async function createRelay() {
   try {
     console.log("Creating relay...");
     const strRelay = await client.create(requestParams);
-    console.log(`Relay created ${strRelay.relayerId} ${strRelay.address}`);
-    // const srtRelayKeys = await client.createKey(strRelay.relayerId);
-    // console.log("Relay keys created");
+    console.log(strRelay);
+    const srtRelayKeys = await client.createKey(strRelay.data.relayerId);
+    console.log("Relay keys created");
+    console.log(srtRelayKeys);
     return {
       relay: strRelay,
       relayKey: srtRelayKeys,
