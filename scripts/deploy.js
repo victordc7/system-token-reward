@@ -4,10 +4,10 @@ const { createRelay } = require("./relay");
 require("dotenv").config();
 
 async function main() {
-  // const contract = await deployContract();
-  // if (contract != null) {
-  //   await uploadContractToDefender("SystemTokensRewards", contract);
-  // }
+  const contract = await deployContract();
+  if (contract != null) {
+    await uploadContractToDefender("SystemTokensRewards", contract);
+  }
   const relayData = await createRelay();
   console.log(relayData);
 }
