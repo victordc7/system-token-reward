@@ -21,8 +21,8 @@ async function createRelay() {
     console.log("Relay keys created");
     console.log(srtRelayKeys);
     return {
-      relay: strRelay,
-      relayKey: srtRelayKeys,
+      relay: strRelay.data,
+      relayKey: srtRelayKeys.data,
     };
   } catch (error) {
     console.log(error);
