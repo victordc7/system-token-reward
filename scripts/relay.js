@@ -9,6 +9,9 @@ const client = new RelayClient({
 const requestParams = {
   name: "STR Relay",
   network: "rinkeby",
+  policies: {
+    whitelistReceivers: process.env.PARTICIPANTS.split(","),
+  },
   minBalance: BigInt(1e17).toString(),
 };
 
